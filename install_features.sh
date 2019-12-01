@@ -15,7 +15,7 @@ sudo add-apt-repository ppa:noobslab/deepin-sc
 #Atualiza o repositorio e instala pacotes
 sudo apt update 
 sudo snap install onlyoffice-desktopeditors
-sudo apt install flatpak gnome-tweak-tool nemo deepin-terminal google-chrome-stable git build-essential r-base -y
+sudo apt install flatpak gnome-tweak-tool nemo deepin-terminal google-chrome-stable git build-essential r-base chrome-gnome-shell -y
 
 #Instalando pacotes R
 sudo R --no-save -e "install.packages(c('tidyverse','tinytex'));tinytex::install_tinytex();install.packages('markdown')"
@@ -28,13 +28,16 @@ gsettings set org.cinnamon.desktop.default-applications.terminal exec deepin-ter
 
 #Adicionar o repositorio do flathub e instalar o visual studio
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.visualstudio.code
+flatpak install flathub com.visualstudio.code -y
 
 
 #unite
 #dash-to-dock
+#Dynamic Panel Transparency
 
 sudo apt dist-upgrade
+sudo apt autoremove
+
 
 #sudo update-alternatives --config x-terminal-emulator
 #/org/cinnamon/desktop/applications/terminal/exec
