@@ -15,7 +15,9 @@ sudo add-apt-repository ppa:noobslab/deepin-sc
 #Atualiza o repositorio e instala pacotes
 sudo apt update 
 sudo snap install onlyoffice-desktopeditors
-sudo apt install flatpak gnome-tweak-tool nemo deepin-terminal google-chrome-stable git build-essential r-base chrome-gnome-shell -y
+sudo apt install flatpak gnome-tweak-tool nemo deepin-terminal google-chrome-stable git build-essential r-base r-dev chrome-gnome-shell docker docker.io -y
+
+sudo usermod -aG docker $(whoami)
 
 #Instalando pacotes R
 sudo R --no-save -e "install.packages(c('tidyverse','tinytex'));tinytex::install_tinytex();install.packages('markdown')"
@@ -31,13 +33,9 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 flatpak install flathub com.visualstudio.code -y
 
 
-#unite
-#dash-to-dock
-#Dynamic Panel Transparency
+#dash to panel
 
 sudo apt dist-upgrade
 sudo apt autoremove
 
-
-#sudo update-alternatives --config x-terminal-emulator
-#/org/cinnamon/desktop/applications/terminal/exec
+#sudo docker run -e PASSWORD=123 -v /home/dobraga/:/home/rstudio/ --rm -p 8787:8787 rocker/verse
