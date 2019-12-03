@@ -32,10 +32,12 @@ gsettings set org.cinnamon.desktop.default-applications.terminal exec deepin-ter
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub com.visualstudio.code -y
 
+#utilizar docker sem sudo
+sudo usermod -aG docker $(whoami)
 
 #dash to panel
 
 sudo apt dist-upgrade
 sudo apt autoremove
 
-#sudo docker run -e PASSWORD=123 -v /home/dobraga/:/home/rstudio/ --rm -p 8787:8787 rocker/verse
+#sudo docker run -e PASSWORD=123 -v /home/$(whoami)/:/home/rstudio/$(whoami)/ --rm -p 8787:8787 rocker/verse
