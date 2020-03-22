@@ -1,20 +1,28 @@
-cd /home/$USER/Downloads
-anaconda = "Anaconda3-2019.10-Linux-x86_64.sh"
-wget "https://repo.anaconda.com/archive/"+anaconda
-chmod anaconda +777
-sh anaconda -b
-conda install numpy pandas scikit-learn jupyterlab r-essentials r-tidyverse rstudio -y
+anaconda="Anaconda3-2019.10-Linux-x86_64.sh"
+wget "https://repo.anaconda.com/archive/"$anaconda
+chmod +777 $anaconda
+sh ./$anaconda -b
+rm $anaconda
 
+sudo chown $USER:$USER /etc/profile
+echo "export PATH=$PATH:~/anaconda3/bin" >> /etc/profile
+
+conda install -c conda-forge numpy pandas scikit-learn jupyterlab -y
+
+sudo snap install onlyoffice-desktopeditors docker spotify
+sudo snap install slack --classic
+sudo snap install code --classic
 
 #Adicionar PPA do chorme
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
 
 #Atualiza o repositorio e instala pacotes
 sudo apt update 
-sudo snap install onlyoffice-desktopeditors docker slack spotify
-sudo snap install code --classic
-sudo apt install gnome-tweak-tool google-chrome-stable git build-essential chrome-gnome-shell -y
+sudo apt install gnome-tweak-tool google-chrome-stable git build-essential chrome-gnome-shell r-base libxml2-dev libcurl4-openssl-dev libssl-dev -y
+
+R -e 'install.packages(c("tidyverse", "data.table", "dtplyr"))'
 
 git config --global user.email "douglasmartinsbraga@gmail.com"
 git config --global user.name "Douglas Braga"
@@ -35,7 +43,9 @@ sudo systemctl restart docker.service
 sudo snap disable docker
 sudo snap enable docker
 
-sudo apt dist-upgrade
-sudo apt autoremove
+sudo apt dist-upgrade -y
+sudo apt autoremove -y
 
 # Dash to Panel, Caffeine, Soft brightness
+
+# https://www.gnome-look.org/p/1099856/
