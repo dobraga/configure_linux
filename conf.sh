@@ -4,8 +4,7 @@ chmod +777 $anaconda
 sh ./$anaconda -b
 rm $anaconda
 
-sudo chown $USER:$USER /etc/profile
-echo "export PATH=$PATH:~/anaconda3/bin" >> /etc/profile
+echo "export PATH=$PATH:~/anaconda3/bin" >> ~/.bashrc
 
 conda install -c conda-forge numpy pandas scikit-learn jupyterlab -y
 
@@ -21,8 +20,6 @@ sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic
 #Atualiza o repositorio e instala pacotes
 sudo apt update 
 sudo apt install gnome-tweak-tool google-chrome-stable git build-essential chrome-gnome-shell r-base libxml2-dev libcurl4-openssl-dev libssl-dev -y
-
-R -e 'install.packages(c("tidyverse", "data.table", "dtplyr"))'
 
 git config --global user.email "douglasmartinsbraga@gmail.com"
 git config --global user.name "Douglas Braga"
@@ -43,9 +40,12 @@ sudo systemctl restart docker.service
 sudo snap disable docker
 sudo snap enable docker
 
+mkdir -p ~/.themes
+cd ~/.themes
+git clone https://github.com/EliverLara/Ant-Dracula
+
 sudo apt dist-upgrade -y
 sudo apt autoremove -y
 
-# Dash to Panel, Caffeine, Soft brightness
+# User Themes, Dash to Panel, Caffeine, Soft brightness
 
-# https://www.gnome-look.org/p/1099856/
