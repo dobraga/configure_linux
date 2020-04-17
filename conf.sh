@@ -1,12 +1,11 @@
-#anaconda="Anaconda3-2019.10-Linux-x86_64.sh"
-#wget "https://repo.anaconda.com/archive/"$anaconda
-#chmod +777 $anaconda
-#sh ./$anaconda -b
-#rm $anaconda
+anaconda="Anaconda3-2019.10-Linux-x86_64.sh"
+wget "https://repo.anaconda.com/archive/"$anaconda
+chmod +777 $anaconda
+sh ./$anaconda -b
+rm $anaconda
 
-#echo "export PATH=$PATH:~/anaconda3/bin" >> ~/.bashrc
-
-#conda install -c conda-forge numpy pandas scikit-learn jupyterlab -y
+echo "export PATH=$PATH:~/anaconda3/bin" >> ~/.bashrc
+conda install -c conda-forge numpy pandas scikit-learn jupyterlab -y
 
 sudo snap install docker spotify
 sudo snap install slack --classic
