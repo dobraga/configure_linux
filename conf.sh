@@ -55,7 +55,7 @@ code --install-extension christian-kohler.path-intellisense
 code --install-extension VisualStudioExptTeam.vscodeintellicode
 
 mkdir -p ~/.themes
-git clone https://github.com/EliverLara/Ant-Dracula --branch slim  ~/.themes/Ant-Dracula/
+git clone https://github.com/EliverLara/Ant-Dracula --branch slim-standard-buttons  ~/.themes/Ant-Dracula/
 git clone https://github.com/archbyte/Adwaita-Slim --branch dark ~/.themes/Adwaita-Slim-Dark/gtk-3.0/
 
 if grep -R "Fedora" /etc/os-release
