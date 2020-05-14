@@ -11,7 +11,7 @@ if grep -R "Fedora" /etc/os-release
 then
     sudo yum install fedora-workstation-repositories -y
     sudo yum config-manager --set-enabled google-chrome
-    sudo yum install google-chrome-stable git R flatpak snapd gnome-tweak-tool chrome-gnome-shell -y
+    sudo yum install google-chrome-stable git R flatpak snapd gnome-tweak-tool chrome-gnome-shell libxml2-devel openssl-devel libcurl-devel -y
 else
     #Adicionar PPA do chorme
     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
@@ -23,7 +23,7 @@ else
 
     #Atualiza repositórios e instala pacotes
     sudo apt update 
-    sudo apt install google-chrome-stable git build-essential r-base flatpak snapd libcurl4-openssl-dev -y #libxml2-dev libssl-dev
+    sudo apt install google-chrome-stable git build-essential r-base flatpak snapd libcurl4-openssl-dev libxml2-dev libssl-dev libcurl4-openssl-de -y #libxml2-dev libssl-dev
     
     echo $XDG_CURRENT_DESKTOP
     if [ "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
@@ -55,9 +55,8 @@ code --install-extension christian-kohler.path-intellisense
 code --install-extension VisualStudioExptTeam.vscodeintellicode
 
 mkdir -p ~/.themes
-cd ~/.themes
-git clone https://github.com/EliverLara/Ant-Dracula
-
+git clone https://github.com/EliverLara/Ant-Dracula --branch slim  ~/.themes/Ant-Dracula/
+git clone https://github.com/archbyte/Adwaita-Slim --branch dark ~/.themes/Adwaita-Slim-Dark/gtk-3.0/
 
 if grep -R "Fedora" /etc/os-release
 then
