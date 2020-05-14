@@ -9,6 +9,8 @@ conda install -c conda-forge numpy pandas scikit-learn jupyterlab -y
 
 if grep -R "Fedora" /etc/os-release
 then
+    sudo yum install fedora-workstation-repositories -y
+    sudo yum config-manager --set-enabled google-chrome
     sudo yum install google-chrome-stable git R flatpak snapd gnome-tweak-tool chrome-gnome-shell -y
 else
     #Adicionar PPA do chorme
@@ -67,4 +69,3 @@ else
 fi
 
 # User Themes, Dash to Panel, Caffeine, Soft brightness, Sound Input & Output Device Chooser, WindowOverlay Icons 
-
