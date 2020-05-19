@@ -4,9 +4,6 @@ chmod +777 $anaconda
 sh ./$anaconda -b
 rm $anaconda
 
-echo "export PATH=$PATH:~/anaconda3/bin" >> ~/.bashrc
-conda install -c conda-forge numpy pandas scikit-learn jupyterlab -y
-
 if grep -R "Fedora" /etc/os-release
 then
     sudo yum install fedora-workstation-repositories -y
@@ -37,14 +34,26 @@ fi
 git config --global user.email "douglasmartinsbraga@gmail.com"
 git config --global user.name "Douglas Braga"
 
-#Configura flatpak e instala pacotes snap e flatpak
+#Configura flatpak, snap e anaconda
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.wps.Office -y
-sudo service snapd start
 sudo ln -s /var/lib/snapd/snap /snap
-sudo snap install spotify
+echo "export PATH=$PATH:~/anaconda3/bin:/snap/bin" >> ~/.bashrc
+
+#Instala pacotes flatpak e snap
+flatpak install flathub com.wps.Office -y
+sudo snap install spotify docker
 sudo snap install code --classic
 sudo snap install slack --classic
+
+#Configura docker
+sudo snap connect docker:home
+sudo groupadd docker
+sudo usermod -aG docker $USER
+sudo systemctl enable docker
+sudo systemctl restart docker.service
+
+#Instala pacotes do anaconda
+conda install -c conda-forge numpy pandas scikit-learn jupyterlab -y
 
 #Instala extenções do visual studio
 code --install-extension eamodio.gitlens
@@ -56,6 +65,7 @@ code --install-extension VisualStudioExptTeam.vscodeintellicode
 
 mkdir -p ~/.themes
 git clone https://github.com/EliverLara/Ant-Dracula --branch slim-standard-buttons  ~/.themes/Ant-Dracula/
+git clone https://github.com/EliverLara/Kripton ~/.themes/Kripton/
 git clone https://github.com/archbyte/Adwaita-Slim --branch dark ~/.themes/Adwaita-Slim-Dark/gtk-3.0/
 
 if grep -R "Fedora" /etc/os-release
