@@ -16,11 +16,11 @@ else
 
     #Adicionar repositorio do r
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-    sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/'
+    sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
 
     #Atualiza repositórios e instala pacotes
     sudo apt update 
-    sudo apt install google-chrome-stable git build-essential r-base flatpak snapd libcurl4-openssl-dev libxml2-dev libssl-dev libcurl4-openssl-de -y #libxml2-dev libssl-dev
+    sudo apt install google-chrome-stable git build-essential r-base r-base-core r-recommended r-base-dev flatpak snapd libcurl4-openssl-dev libxml2-dev libssl-dev libcurl4-openssl-de -y #libxml2-dev libssl-dev
     
     echo $XDG_CURRENT_DESKTOP
     if [ "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
@@ -64,8 +64,7 @@ code --install-extension christian-kohler.path-intellisense
 code --install-extension VisualStudioExptTeam.vscodeintellicode
 
 mkdir -p ~/.themes
-git clone https://github.com/EliverLara/Ant-Dracula --branch slim-standard-buttons  ~/.themes/Ant-Dracula/
-git clone https://github.com/EliverLara/Kripton ~/.themes/Kripton/
+git clone https://github.com/EliverLara/Ant-Dracula --branch slim  ~/.themes/Ant-Dracula/
 git clone https://github.com/archbyte/Adwaita-Slim --branch dark ~/.themes/Adwaita-Slim-Dark/gtk-3.0/
 
 if grep -R "Fedora" /etc/os-release
