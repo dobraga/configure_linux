@@ -27,6 +27,7 @@ else
         sudo apt install kio-gdrive korganizer kdepim -y
     else
         sudo apt install gnome-tweak-tool chrome-gnome-shell -y
+        gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
     fi
 fi
 
