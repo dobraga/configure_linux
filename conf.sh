@@ -1,14 +1,18 @@
 anaconda="Anaconda3-2020.02-Linux-x86_64.sh"
 wget -c "https://repo.anaconda.com/archive/"$anaconda
+
 chmod +777 $anaconda
+chmod +777 install.sh
+
 sh ./$anaconda -b
 rm $anaconda
+
 
 if grep -R "Fedora" /etc/os-release
 then
     sudo yum install fedora-workstation-repositories -y
     sudo yum config-manager --set-enabled google-chrome
-    sudo yum install google-chrome-stable git R flatpak snapd gnome-tweak-tool chrome-gnome-shell libxml2-devel openssl-devel libcurl-devel -y
+    sudo yum install google-chrome-stable git R snapd gnome-tweak-tool chrome-gnome-shell libxml2-devel openssl-devel libcurl-devel zsh -y
 else
     #Adicionar PPA do chorme
     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
@@ -17,17 +21,23 @@ else
     #Adicionar repositorio do r
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
     sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
-
+    
+    #Docker
+    sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+    
     #Atualiza repositórios e instala pacotes
     sudo apt update 
-    sudo apt install google-chrome-stable git build-essential r-base r-base-core r-recommended r-base-dev flatpak snapd libcurl4-openssl-dev libxml2-dev libssl-dev libcurl4-openssl-de -y #libxml2-dev libssl-dev
+    apt-cache policy docker-ce
+    sudo apt install google-chrome-stable git snapd docker-ce zsh -y
     
     echo $XDG_CURRENT_DESKTOP
     if [ "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
         sudo apt install kio-gdrive korganizer kdepim -y
     else
         sudo apt install gnome-tweak-tool chrome-gnome-shell -y
-        gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+        gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-previews'
     fi
 fi
 
@@ -35,23 +45,40 @@ fi
 git config --global user.email "douglasmartinsbraga@gmail.com"
 git config --global user.name "Douglas Braga"
 
-#Configura flatpak, snap e anaconda
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+#Configura snap, anaconda, zsh
 sudo ln -s /var/lib/snapd/snap /snap
 echo "export PATH=$PATH:~/anaconda3/bin:/snap/bin" >> ~/.bashrc
+echo "export PATH=$PATH:~/anaconda3/bin:/snap/bin" >> ~/.zshrc
 
-#Instala pacotes flatpak e snap
-flatpak install flathub com.wps.Office -y
-sudo snap install spotify docker
+echo '
+# PROMPT
+SPACESHIP_PROMPT_SYMBOL=">"
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+
+# CONDA
+SPACESHIP_CONDA_SYMBOL="🐍 "
+' >> ~/.zshrc
+
+sudo chsh -s $(which zsh)
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+
+git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+#Set ZSH_THEME="spaceship" in your .zshrc and add zsh-autosuggestions in plugins.
+
+conda init zsh
+
+
+#Instala pacotes snap
+sudo snap install spotify onlyoffice-desktopeditors
 sudo snap install code --classic
 sudo snap install slack --classic
 
-#Configura docker
-sudo snap connect docker:home
-sudo groupadd docker
-sudo usermod -aG docker $USER
-sudo systemctl enable docker
-sudo systemctl restart docker.service
+#Docker sem sudo
+sudo usermod -aG docker ${USER}
+su - ${USER}
 
 #Instala pacotes do anaconda
 conda install -c conda-forge numpy pandas scikit-learn jupyterlab -y
@@ -76,5 +103,7 @@ else
     sudo apt dist-upgrade -y
     sudo apt autoremove -y
 fi
+
+reboot
 
 # User Themes, Dash to Panel, Caffeine, Soft brightness, Sound Input & Output Device Chooser, WindowOverlay Icons 
