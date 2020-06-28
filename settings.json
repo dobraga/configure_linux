@@ -1,0 +1,14 @@
+{
+    "window.zoomLevel": -1,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.languageServer": "Microsoft",
+    "python.dataScience.sendSelectionToInteractiveWindow": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.flake8Enabled": false,
+    "python.testing.unittestEnabled": false,
+    "terminal.integrated.inheritEnv": true,
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
+    "editor.minimap.enabled": false
+}

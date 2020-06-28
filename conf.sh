@@ -1,12 +1,8 @@
 anaconda="Anaconda3-2020.02-Linux-x86_64.sh"
 wget -c "https://repo.anaconda.com/archive/"$anaconda
-
 chmod +777 $anaconda
-chmod +777 install.sh
-
 sh ./$anaconda -b
 rm $anaconda
-
 
 if grep -R "Fedora" /etc/os-release
 then
@@ -83,7 +79,7 @@ su - ${USER}
 #Instala pacotes do anaconda
 conda install -c conda-forge numpy pandas scikit-learn jupyterlab -y
 
-#Instala extenções do visual studio
+#Instala extenções do visual studio e configura keys
 code --install-extension eamodio.gitlens
 code --install-extension ms-python.python
 code --install-extension PKief.material-icon-theme
@@ -91,6 +87,10 @@ code --install-extension ms-azuretools.vscode-docker
 code --install-extension christian-kohler.path-intellisense
 code --install-extension VisualStudioExptTeam.vscodeintellicode
 
+cp ./keybindings.json /home/$USER/.config/Code/User
+cp ./settings.json /home/$USER/.config/Code/User
+
+#Temas
 mkdir -p ~/.themes
 git clone https://github.com/EliverLara/Ant-Dracula --branch slim  ~/.themes/Ant-Dracula/
 git clone https://github.com/archbyte/Adwaita-Slim --branch dark ~/.themes/Adwaita-Slim-Dark/gtk-3.0/
