@@ -43,29 +43,20 @@ git config --global user.name "Douglas Braga"
 
 #Configura snap, anaconda, zsh
 sudo ln -s /var/lib/snapd/snap /snap
-echo "export PATH=$PATH:~/anaconda3/bin:/snap/bin" >> ~/.bashrc
 echo "export PATH=$PATH:~/anaconda3/bin:/snap/bin" >> ~/.zshrc
-
-echo '
-# PROMPT
-SPACESHIP_PROMPT_SYMBOL=">"
-SPACESHIP_PROMPT_ADD_NEWLINE=false
-
-# CONDA
-SPACESHIP_CONDA_SYMBOL="🐍 "
-' >> ~/.zshrc
+export PATH=$PATH:~/anaconda3/bin:/snap/bin
 
 sudo chsh -s $(which zsh)
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
 git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
-git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
 
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 #Set ZSH_THEME="spaceship" in your .zshrc and add zsh-autosuggestions in plugins.
 
 conda init zsh
-
+conda config --set changeps1 False
 
 #Instala pacotes snap
 sudo snap install spotify onlyoffice-desktopeditors
@@ -87,8 +78,9 @@ code --install-extension ms-azuretools.vscode-docker
 code --install-extension christian-kohler.path-intellisense
 code --install-extension VisualStudioExptTeam.vscodeintellicode
 
-cp ./keybindings.json /home/$USER/.config/Code/User
-cp ./settings.json /home/$USER/.config/Code/User
+cp ./keybindings.json ~/.config/Code/User
+cp ./settings.json ~/.config/Code/User
+cp ./.zshrc ~
 
 #Temas
 mkdir -p ~/.themes
