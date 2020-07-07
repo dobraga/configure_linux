@@ -47,7 +47,6 @@ echo "export PATH=$PATH:~/anaconda3/bin:/snap/bin" >> ~/.zshrc
 export PATH=$PATH:~/anaconda3/bin:/snap/bin
 
 sudo chsh -s $(which zsh)
-sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
 git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
 git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
@@ -78,6 +77,7 @@ code --install-extension ms-azuretools.vscode-docker
 code --install-extension christian-kohler.path-intellisense
 code --install-extension VisualStudioExptTeam.vscodeintellicode
 
+mkdir ~/.config/Code/User -p
 cp ./keybindings.json ~/.config/Code/User
 cp ./settings.json ~/.config/Code/User
 cp ./.zshrc ~
@@ -96,6 +96,6 @@ else
     sudo apt autoremove -y
 fi
 
-reboot
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
 # User Themes, Dash to Panel, Caffeine, Soft brightness, Sound Input & Output Device Chooser, WindowOverlay Icons 
