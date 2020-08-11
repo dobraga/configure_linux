@@ -9,6 +9,24 @@
     "python.testing.unittestEnabled": false,
     "terminal.integrated.inheritEnv": true,
     "python.formatting.provider": "black",
-    "editor.formatOnSave": true,
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "python.dataScience.textOutputLimit": 0,
+    "workbench.iconTheme": "material-icon-theme",
+    "macros": {
+        "ExecSelectionAndCursorDown": [
+            "workbench.action.terminal.runSelectedText",
+            "cursorDown"
+        ]
+    },
+    "workbench.colorTheme": "Dracula Soft",
+    "editor.fontSize": 16,
+    "cSpell.language": "en,pt-BR",
+    "cSpell.userWords": [
+        "hiperparâmetros",
+        "metros",
+        "overfitting"
+    ],
+    "editor.rulers": [
+        80
+    ]
 }
