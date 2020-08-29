@@ -12,6 +12,7 @@ cp .zshrc ~
 echo "export PATH=$PATH:~/anaconda3/bin:~/julia-1.5.0/bin:/snap/bin" >> ~/.zshrc
 export PATH=$PATH:~/anaconda3/bin:~/julia-1.5.0/bin:/snap/bin
 
+conda init zsh
 conda config --set changeps1 False
 conda install -c conda-forge jupyter_contrib_nbextensions -q -y && jupyter contrib nbextension install --user
 
