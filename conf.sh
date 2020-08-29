@@ -1,16 +1,17 @@
-# Remve libre office
-sudo apt-get remove --purge libreoffice*
+# Configura ZSH
+sudo chsh -s $(which zsh)
+
+# Configura git
+git config --global user.email "douglasmartinsbraga@gmail.com"
+git config --global user.name "Douglas Braga"
 
 # Copia configuração do ZSH
 cp .zshrc ~
 
-# Configura ZSH
-sudo chsh -s $(which zsh)
-
-# Configura Anaconda e Julia
+# Adiciona Anaconda, Julia e snap ao path
 echo "export PATH=$PATH:~/anaconda3/bin:~/julia-1.5.0/bin:/snap/bin" >> ~/.zshrc
+export PATH=$PATH:~/anaconda3/bin:~/julia-1.5.0/bin:/snap/bin
 
-export PATH=$PATH:~/anaconda3/bin:~/julia-1.5.0/bin
 conda config --set changeps1 False
 conda install -c conda-forge jupyter_contrib_nbextensions -q -y && jupyter contrib nbextension install --user
 
