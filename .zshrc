@@ -103,3 +103,4 @@ source $ZSH/oh-my-zsh.sh
 # PROMPT
 SPACESHIP_CHAR_SYMBOL="> "
 SPACESHIP_GIT_SYMBOL="⎇ "
+

@@ -27,7 +27,9 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
   car \
   shinydashboard \
   leaflet \
-  flexdashboard\
+  flexdashboard \
+  data.table \
+  xaringan \
   && tlmgr update --self \
   && tlmgr install \
   abntex2 \

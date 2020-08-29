@@ -2,11 +2,6 @@
 [
     {
         "key": "ctrl+shift+c",
-        "command": "-workbench.action.terminal.openNativeConsole",
-        "when": "!terminalFocus"
-    },
-    {
-        "key": "ctrl+shift+c",
         "command": "editor.action.commentLine",
         "when": "editorTextFocus && !editorReadonly"
     },
@@ -25,13 +20,5 @@
     {
         "key": "shift+enter",
         "command": "macros.ExecSelectionAndCursorDown"
-    },
-    {
-        "key": "Ctrl+Shift+m",
-        "command": "type",
-        "args": {
-            "text": " %>% "
-        },
-        "when": "editorTextFocus"
     }
 ]
