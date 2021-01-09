@@ -29,7 +29,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 
 # Atualiza repositórios e instala pacotes
 sudo apt update 
-sudo apt install google-chrome-stable git r-base docker-ce zsh libssl-dev libcurl4-openssl-dev fonts-firacode -y
+sudo apt install snapd google-chrome-stable git r-base docker-ce zsh libssl-dev libcurl4-openssl-dev fonts-firacode -y
 
 # Remve libre office
 sudo apt-get remove --purge libreoffice*
