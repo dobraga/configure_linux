@@ -8,6 +8,14 @@ git config --global user.name "Douglas Braga"
 # Copia configuração do ZSH
 cp .zshrc ~
 
+#Instalando pacotes R
+sudo R --no-save -e "install.packages(c('tidyverse','tinytex'));tinytex::install_tinytex()"
+
+
+# Configura cedilha
+# https://blogdobillgates.wordpress.com/2014/08/12/problema-com-c-no-linux-ubuntu-saindo-c/
+
+
 # Adiciona Anaconda, Julia e snap ao path
 echo "export PATH=$PATH:~/anaconda3/bin:~/julia-1.5.0/bin:/snap/bin" >> ~/.zshrc
 export PATH=$PATH:~/anaconda3/bin:~/julia-1.5.0/bin:/snap/bin
@@ -23,9 +31,7 @@ mkdir -p $ZSH_CUSTOM/themes
 mkdir -p $ZSH_CUSTOM/plugins
 
 git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-
 git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
-
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" 
 
 
@@ -34,33 +40,29 @@ sudo snap install spotify onlyoffice-desktopeditors
 sudo snap install code --classic
 sudo snap install slack --classic
 
+
 # Docker sem sudo
 sudo usermod -aG docker ${USER}
 su - ${USER}
 
 # Configura GNOME
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down "['<Primary><Shift><Super>Down']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up "['<Primary><Shift><Super>Up']"
+gsettings set org.gnome.desktop.wm.keybindings close ['<Super>q']
+gsettings set org.gnome.desktop.wm.keybindings minimize ['<Super>h']
+gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-left ['<Super><Shift>a']
+gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-right ['<Super><Shift>d']
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-down ['<Shift><Super>s']
+gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-up ['<Shift><Super>w']
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down ['<Super>s']
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up ['<Super>w']
+gsettings set org.gnome.desktop.wm.keybindings switch-windows ['<Alt>Tab']
+gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward ['<Shift><Alt>Tab']
+gsettings set org.gnome.desktop.wm.keybindings toggle-maximized ['<Super>Up']
+
 
 # Instala pacotes do anaconda
-conda install -c conda-forge numpy pandas scikit-learn jupyterlab -y
+conda install -c conda-forge numpy pandas scikit-learn notebook -y
 
-# Instala extenções do visual studio e configura keys
-code --install-extension eamodio.gitlens
-code --install-extension ms-python.python
-code --install-extension PKief.material-icon-theme
-code --install-extension ms-azuretools.vscode-docker
-code --install-extension christian-kohler.path-intellisense
-code --install-extension VisualStudioExptTeam.vscodeintellicode
-code --install-extension Ikuyadeu.r
-code --install-extension geddski.macros
-code --install-extension yzhang.markdown-all-in-one
-code --install-extension 2gua.rainbow-brackets
-
-mkdir ~/.config/Code/User -p
-cp ./keybindings.json ~/.config/Code/User
-cp ./settings.json ~/.config/Code/User
 
 # Temas
 mkdir -p ~/.themes
