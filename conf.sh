@@ -81,7 +81,7 @@ conda install -c conda-forge numpy pandas scikit-learn notebook -y
 
 
 # # Temas
-# mkdir -p ~/.themes
+# mkdir -p ~/.themes/   
 # git clone https://github.com/EliverLara/Ant-Dracula --branch slim  ~/.themes/Ant-Dracula/
 # git clone https://github.com/archbyte/Adwaita-Slim --branch dark ~/.themes/Adwaita-Slim-Dark/gtk-3.0/
 
