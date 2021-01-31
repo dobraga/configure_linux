@@ -39,13 +39,9 @@ systemctl start fnmode
 systemctl enable fnmode
 
 
-# Adiciona Anaconda, Julia e snap ao path
-echo "export PATH=$PATH:~/anaconda3/bin:~/julia-1.5.0/bin:/snap/bin" >> ~/.zshrc
-export PATH=$PATH:~/anaconda3/bin:~/julia-1.5.0/bin:/snap/bin
-
-conda init zsh
-conda config --set changeps1 False
-conda install -c conda-forge jupyter_contrib_nbextensions -q -y && jupyter contrib nbextension install --user
+# Adiciona Julia e snap ao path
+echo "export PATH=$PATH:~/julia-1.5.0/bin:/snap/bin" >> ~/.zshrc
+export PATH=$PATH:~/julia-1.5.0/bin:/snap/bin
 
 julia -e 'using Pkg; Pkg.add(["IJulia", "DataFrames"])'
 
@@ -74,10 +70,6 @@ su - ${USER}
 # https://askubuntu.com/questions/26056/where-are-gnome-keyboard-shortcuts-stored
 # dconf dump '/' > custom-dconf.dconf
 dconf load '/' < custom-dconf.dconf
-
-
-# Instala pacotes do anaconda
-conda install -c conda-forge numpy pandas scikit-learn notebook -y
 
 
 # # Temas

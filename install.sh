@@ -1,10 +1,5 @@
 sudo add-apt-repository universe -y
 
-# Instala Anaconda
-anaconda="Anaconda3-2020.11-Linux-x86_64.sh"
-wget -c "https://repo.anaconda.com/archive/"$anaconda -P /tmp/
-chmod +777 /tmp/$anaconda
-sh /tmp/$anaconda -b
 
 # Instala R
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
@@ -29,7 +24,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 
 # Atualiza repositórios e instala pacotes
 sudo apt update 
-sudo apt install snapd google-chrome-stable git r-base docker-ce zsh libssl-dev libcurl4-openssl-dev fonts-firacode -y
+sudo apt install python3-pip snapd google-chrome-stable git r-base docker-ce zsh libssl-dev libcurl4-openssl-dev fonts-firacode -y
 
 # Instala docker-compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
