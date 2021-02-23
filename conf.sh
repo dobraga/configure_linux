@@ -11,10 +11,6 @@ git config --global user.name "Douglas Braga"
 cp .zshrc ~
 
 
-#Instalando pacotes R
-sudo R --no-save -e "install.packages(c('tidyverse','tinytex'));tinytex::install_tinytex()"
-
-
 # Configura cedilha
 # https://www.danielkossmann.com/ajeitando-cedilha-errado-ubuntu-linux/
 sudo su -c "echo '
@@ -43,8 +39,6 @@ systemctl enable fnmode
 echo "export PATH=$PATH:~/julia-1.5.0/bin:/snap/bin" >> ~/.zshrc
 export PATH=$PATH:~/julia-1.5.0/bin:/snap/bin
 
-julia -e 'using Pkg; Pkg.add(["IJulia", "DataFrames"])'
-
 
 # Adiciona Pacotes ao ZSH
 mkdir -p $ZSH/themes
@@ -56,28 +50,10 @@ ln -s "$ZSH/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH/themes/spaceship.
 git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH/plugins/zsh-autosuggestions"
 
 
-# Instala pacotes snap
-sudo snap install spotify onlyoffice-desktopeditors
-sudo snap install code --classic
-sudo snap install slack --classic
-
-
 # Docker sem sudo
 sudo usermod -aG docker ${USER}
 su - ${USER}
 
-# Configura GNOME
-# https://askubuntu.com/questions/26056/where-are-gnome-keyboard-shortcuts-stored
-# dconf dump '/' > custom-dconf.dconf
-dconf load '/' < custom-dconf.dconf
-
-
-# # Temas
-# mkdir -p ~/.themes/   
-# git clone https://github.com/EliverLara/Ant-Dracula --branch slim  ~/.themes/Ant-Dracula/
-# git clone https://github.com/archbyte/Adwaita-Slim --branch dark ~/.themes/Adwaita-Slim-Dark/gtk-3.0/
-
 sudo apt dist-upgrade -y
 sudo apt autoremove -y
 
-# User Themes, Caffeine, Soft brightness, WindowOverlay Icons, Material Shell, Dash to Panel, Sound Input & Output Device Chooser
