@@ -16,15 +16,23 @@ sudo apt install apt-transport-https ca-certificates curl software-properties-co
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 
+# Adiciona repositório do vscode
+echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" | sudo \
+   tee /etc/apt/sources.list.d/vs-code.list
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+
 # Atualiza repositórios e instala pacotes
 sudo apt update 
-sudo apt install python3-pip snapd google-chrome-stable git docker-ce zsh fonts-firacode r-base libcurl4-openssl-dev -y
+sudo apt install flatpak python3-pip google-chrome-stable git docker-ce zsh fonts-firacode libcurl4-openssl-dev r-base code -y
 pip3 install --user poetry
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-# Instala pacotes snap
-sudo snap install spotify onlyoffice-desktopeditors
-sudo snap install code --classic
-sudo snap install slack --classic
+# Instala pacotes snap/flatpak
+flatpak install flathub com.slack.Slack com.spotify.Client -y
+# sudo snap install spotify onlyoffice-desktopeditors
+# sudo snap install code --classic
+# sudo snap install slack --classic
 
 # Instala docker-compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose

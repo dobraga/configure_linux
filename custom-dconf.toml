@@ -1,38 +1,14 @@
-[net/launchpad/plank/docks/dock1]
-alignment='center'
-auto-pinning=true
-current-workspace-only=true
-dock-items=['google-chrome.dockitem', 'org.gnome.Nautilus.dockitem', 'org.gnome.Terminal.dockitem']
-hide-delay=0
-hide-mode='intelligent'
-icon-size=34
-items-alignment='center'
-lock-items=false
-monitor=''
-offset=0
-pinned-only=false
-position='bottom'
-pressure-reveal=true
-show-dock-item=false
-theme='Dracula'
-tooltips-enabled=true
-unhide-delay=0
-zoom-enabled=true
-zoom-percent=150
-
-[org/gnome/GWeather]
-temperature-unit='centigrade'
-
 [org/gnome/desktop/interface]
-cursor-theme='McMojave-cursors'
+cursor-theme='Yaru'
 gtk-im-module='gtk-im-context-simple'
 gtk-theme='Ant-Dracula'
-icon-theme='Tela-black'
+icon-theme='Tela-dark'
 
 [org/gnome/desktop/wm/keybindings]
 activate-window-menu=@as []
 begin-move=@as []
 begin-resize=@as []
+close=['<Super>q']
 cycle-group=@as []
 cycle-group-backward=@as []
 cycle-panels=@as []
@@ -63,7 +39,14 @@ toggle-maximized=['<Super>Up']
 [org/gnome/desktop/wm/preferences]
 auto-raise=true
 button-layout='appmenu:maximize,close'
-focus-mode='mouse'
+focus-mode='click'
+
+[org/gnome/gedit/preferences/editor]
+scheme='solarized-dark'
+wrap-last-split-mode='word'
+
+[org/gnome/gedit/preferences/ui]
+show-tabs-mode='auto'
 
 [org/gnome/mutter]
 center-new-windows=true
@@ -104,15 +87,20 @@ show-apps-at-top=false
 show-trash=false
 transparency-mode='DYNAMIC'
 
+[org/gnome/shell/extensions/desktop-icons]
+show-home=false
+show-mount=false
+show-trash=false
+
 [org/gnome/shell/extensions/freon]
 drive-utility='nvmecli'
 gpu-utility='nvidia-settings'
 group-temperature=true
-hot-sensors=['GeForce GTX 1050 Ti', 'Tctl']
+hot-sensors=['GeForce GTX 1050 Ti', '__average__']
 position-in-panel='right'
 show-degrees-on-panel=true
 show-fan-rpm=true
-show-icon-on-panel=false
+show-icon-on-panel=true
 
 [org/gnome/shell/extensions/pop-shell]
 focus-down=@as []
@@ -127,7 +115,10 @@ tile-move-left=['Left', 'h']
 toggle-stacking-global=@as []
 
 [org/gnome/shell/extensions/user-theme]
-name='Ant-Dracula'
+name='dracula'
+
+[org/gnome/system/location]
+enabled=false
 
 [org/gnome/terminal/legacy/keybindings]
 full-screen='F11'
@@ -149,17 +140,3 @@ use-transparent-background=false
 [org/gtk/settings/color-chooser]
 custom-colors=[(0.93333333333333335, 0.93333333333333335, 0.93333333333333335, 1.0)]
 selected-color=(true, 0.0, 0.0, 0.0, 1.0)
-
-[org/gtk/settings/file-chooser]
-date-format='regular'
-location-mode='path-bar'
-show-hidden=false
-show-size-column=true
-show-type-column=true
-sidebar-width=224
-sort-column='name'
-sort-directories-first=true
-sort-order='ascending'
-type-format='category'
-window-position=(396, 186)
-window-size=(1096, 822)
