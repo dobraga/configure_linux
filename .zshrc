@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/dobraga/.oh-my-zsh"
+export ZSH="~/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -105,3 +105,5 @@ source $ZSH/oh-my-zsh.sh
 SPACESHIP_CHAR_SYMBOL="> "
 SPACESHIP_GIT_SYMBOL="⎇ "
 SPACESHIP_VENV_SYMBOL="🐍 "
+
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:~/.local/bin:~/julia-1.5.0/bin:/snap/bin

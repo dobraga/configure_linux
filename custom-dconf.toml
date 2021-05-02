@@ -50,6 +50,7 @@ show-tabs-mode='auto'
 
 [org/gnome/mutter]
 center-new-windows=true
+edge-tiling=false
 workspaces-only-on-primary=true
 
 [org/gnome/mutter/keybindings]
@@ -113,6 +114,28 @@ show-title=false
 tile-by-default=false
 tile-move-left=['Left', 'h']
 toggle-stacking-global=@as []
+
+[org/gnome/shell/extensions/unite]
+app-menu-ellipsize-mode='middle'
+autofocus-windows=false
+enable-titlebar-actions=false
+extend-left-box=false
+greyscale-tray-icons=true
+hide-activities-button='never'
+hide-aggregate-menu-arrow=true
+hide-app-menu-arrow=true
+hide-app-menu-icon=false
+hide-dropdown-arrows=true
+hide-window-titlebars='always'
+notifications-position='center'
+reduce-panel-spacing=true
+restrict-to-primary-screen=false
+show-desktop-name=false
+show-legacy-tray=false
+show-window-buttons='never'
+show-window-title='both'
+window-buttons-placement='last'
+window-buttons-theme='osx-arc'
 
 [org/gnome/shell/extensions/user-theme]
 name='dracula'

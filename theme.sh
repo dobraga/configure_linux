@@ -21,5 +21,5 @@ git clone https://github.com/vinceliuice/Tela-icon-theme
 dconf load '/' < custom-dconf.toml
 
 
-# Dash to Dock, User Themes, Caffeine, Soft brightness, WindowOverlay Icons, Dynamic Panel Transparency, Freon, Pixel Saver
+# Dash to Dock, User Themes, Caffeine, Soft brightness, WindowOverlay Icons, Dynamic Panel Transparency, Freon, Pixel Saver, Hide Top Bar, ShellTile, Unite
 
