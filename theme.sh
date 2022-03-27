@@ -16,9 +16,5 @@ mkdir -p ~/.icons/
 git clone https://github.com/vinceliuice/Tela-icon-theme
 ./Tela-icon-theme/install.sh
 
-# Instala cursor
-https://dl1.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MTYyMjE5NDE5NywidSI6bnVsbCwibHQiOiJkb3dubG9hZCIsInMiOiJjNGRlOTI3OTAxZjY4OWYwOGI1NzdhNjc5NDQyMTRhZjc0MDJjYjI0NmJkMjY4MzM1OWFlNDJkZDkwOTc3N2Y4M2VkOGZjNWM5ZDJlZTYxNmFlMGYzZTFmNDE5ZmQ4Yzg3NDQzMThmYjc4ZDQ5ODRlNTdlOGVmY2RkMGNlYmYzOCIsInQiOjE2NDg0MTc4NDEsInN0ZnAiOiIzZTdjMjNkZGViOTUxOWMxMDBhMDllYTI4NzI3MTI0NyIsInN0aXAiOiIyODA0OjdmMTplNzgzOjQxMGI6MzM5ODo5MjU4OmFiYWM6ZDk1ZiJ9.rtRfNoOwbFKyUCCqhkQ-pksCyHGs8NR6hTN6MWpNbOU/oreo_black_cursors.tar.gz
-tar -xvf  -C ~/.icons/
-
 # Extensões utilizadas
 # Dash to Dock, User Themes, Caffeine, Soft brightness, WindowOverlay Icons, Dynamic Panel Transparency, Freon, Pixel Saver, Hide Top Bar, ShellTile, Unite
