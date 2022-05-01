@@ -7,7 +7,7 @@ sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable
 # Adicionar repositorio do Docker
 sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 # Adiciona repositório do vscode
 echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" | sudo \
@@ -16,8 +16,7 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 
 
-# Adiciona repository do terminator, node e yarn
-sudo add-apt-repository ppa:gnome-terminator
+# Adiciona repository do node e yarn
 curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
 curl -fsSL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 
