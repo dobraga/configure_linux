@@ -30,4 +30,5 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 dconf load '/' < ~/dotfiles/custom-dconf.toml
 
 # Configura ZSH
+chsh -s $(which zsh)
 sudo chsh -s $(which zsh)
